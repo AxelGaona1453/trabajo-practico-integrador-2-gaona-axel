@@ -11,6 +11,10 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
 					<Link to="/" className="text-xl font-bold tracking-wide">
 						MyApp
 					</Link>
+
+					<Link to="/tasks" className="hover:text-gray-200">
+						Tasks
+					</Link>
 					<button
 						className="sm:hidden focus:outline-none"
 						onClick={() => setMenuOpen(!menuOpen)}
@@ -38,37 +42,14 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
 							)}
 						</svg>
 					</button>
-
-					<div className="hidden sm:flex space-x-6 items-center">
-						{isAuthenticated ? (
-							<>
-								<Link to="/" className="hover:text-gray-200">
-									Home
-								</Link>
-								<Link to="/tasks" className="hover:text-gray-200">
-									Tasks
-								</Link>
-								<Link to="/profile" className="hover:text-gray-200">
-									Profile
-								</Link>
-								<button
-									onClick={onLogout}
-									className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
-								>
-									Logout
-								</button>
-							</>
-						) : (
-							<>
-								<Link to="/login" className="hover:text-gray-200">
-									Login
-								</Link>
-								<Link to="/register" className="hover:text-gray-200">
-									Register
-								</Link>
-							</>
-						)}
-					</div>
+					<>
+						<Link to="/login" className="hover:text-gray-200">
+							Login
+						</Link>
+						<Link to="/register" className="hover:text-gray-200">
+							Register
+						</Link>
+					</>
 				</div>
 			</div>
 			{menuOpen && (
