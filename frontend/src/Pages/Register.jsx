@@ -11,11 +11,9 @@ export const Register = () => {
 	});
 
 	const navigate = useNavigate();
-
+	evento.preventDefault();
 	const handleRegister = async (evento) => {
 		try {
-			evento.preventDefault();
-
 			const response = await fetch('http://localhost:3000/api/register', {
 				method: 'POST',
 				headers: {

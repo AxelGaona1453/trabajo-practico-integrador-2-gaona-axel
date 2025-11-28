@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Loading } from '../components/Loading';
+import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 export const Profile = () => {
 	const [user, setUser] = useState(null);
@@ -50,7 +52,6 @@ export const Profile = () => {
 	if (isLoading) {
 		<Loading />;
 	}
-	console.log(user);
 	return (
 		<>
 			<Navbar />
@@ -81,8 +82,8 @@ export const Profile = () => {
 						Cerrar sesión
 					</button>
 				</div>
-				<Footer />
 			</div>
+			<Footer />
 		</>
 	);
 };

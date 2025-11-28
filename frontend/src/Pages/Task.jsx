@@ -9,6 +9,7 @@ export const Tasks = () => {
 	const [tasks, setTasks] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [editingTaskId, setEditingTaskId] = useState(null);
+	//   const [deleteTask, setDeleteTask] = useState(null);
 	const { form, handleChange, handleReset, setForm } = useForm({
 		title: '',
 		description: '',
@@ -29,13 +30,18 @@ export const Tasks = () => {
 			setLoading(false);
 		}
 	};
+
+	// Crear o actualizar tarea
 	const handleSubmit = async (e, taskId = null) => {
 		e.preventDefault();
 		if (!form.title.trim() || !form.description.trim())
 			return alert('Completa todos los campos');
+		// aca dependiendo de que reciba una task id entonces está editando entonces usa put
 		const url = taskId
 			? `http://localhost:3000/api/tasks/${taskId}`
-			: 'http://localhost:3000/api/tasks';
+			: //   por ejemplo tasks/5
+			  'http://localhost:3000/api/tasks';
+		//   sino esta creando y usa el método post
 		const method = taskId ? 'PUT' : 'POST';
 
 		try {
@@ -56,6 +62,8 @@ export const Tasks = () => {
 			alert('No se pudo guardar la tarea');
 		}
 	};
+
+	// Cargar tarea en modo edición
 	const handleEdit = (task) => {
 		setEditingTaskId(task.id);
 		setForm({
@@ -114,6 +122,8 @@ export const Tasks = () => {
 	return (
 		<>
 			<Navbar />
+
+			{/* Formulario para crear tarea */}
 			<form
 				onSubmit={(e) => handleSubmit(e)}
 				className="bg-white p-6 max-w-xl mx-auto rounded-xl shadow-md mb-6 space-y-4"

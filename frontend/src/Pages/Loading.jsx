@@ -23,6 +23,7 @@ export const Login = () => {
 			if (!response.ok) {
 				return alert(data.message);
 			}
+			// localStorage.setItem("token", data.token);
 			alert(data.message);
 			navigate('/home');
 		} catch (error) {

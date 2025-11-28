@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Loading } from '../components/Loading';
-import { useState } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 export const PrivateRoute = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
