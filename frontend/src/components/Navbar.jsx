@@ -8,12 +8,9 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
 		<nav className="bg-blue-600 text-white shadow-md">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between h-16 items-center">
-					{/* Logo o nombre */}
 					<Link to="/" className="text-xl font-bold tracking-wide">
 						MyApp
 					</Link>
-
-					{/* Botón menú responsive */}
 					<button
 						className="sm:hidden focus:outline-none"
 						onClick={() => setMenuOpen(!menuOpen)}
@@ -42,7 +39,6 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
 						</svg>
 					</button>
 
-					{/* Enlaces escritorio */}
 					<div className="hidden sm:flex space-x-6 items-center">
 						{isAuthenticated ? (
 							<>
@@ -75,8 +71,6 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
 					</div>
 				</div>
 			</div>
-
-			{/* Menú responsive */}
 			{menuOpen && (
 				<div className="sm:hidden bg-blue-700 px-4 pb-3 space-y-2">
 					{isAuthenticated ? (

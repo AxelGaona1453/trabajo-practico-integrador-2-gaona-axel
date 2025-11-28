@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Loading } from '../components/Loading';
 
 export const Profile = () => {
-	const [user, setUser] = useState(null); //estado para el usuario
+	const [user, setUser] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
 	const navigate = useNavigate();
